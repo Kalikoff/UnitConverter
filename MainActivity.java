@@ -10,7 +10,6 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -36,7 +35,8 @@ public class MainActivity extends AppCompatActivity {
         editTextValue = findViewById(R.id.EditTextValue);
         textViewResult = findViewById(R.id.TextViewResult);
 
-        arrayAdapter = new ArrayAdapter<>(getApplicationContext(), androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
+        arrayAdapter = new ArrayAdapter<>(getApplicationContext(),
+                androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
 
         arrayListLength.add(new Unit("mm", 0.001));
         arrayListLength.add(new Unit("cm", 0.01));
@@ -123,7 +123,8 @@ public class MainActivity extends AppCompatActivity {
     // Вычисление результата
     private Double CalculateResult() {
         return Double.parseDouble(editTextValue.getText().toString()) *
-                (arrayAdapter.getItem(spinnerFrom.getSelectedItemPosition()).getCoeff() / arrayAdapter.getItem(spinnerTo.getSelectedItemPosition()).getCoeff());
+                (arrayAdapter.getItem(spinnerFrom.getSelectedItemPosition()).getCoeff() /
+                        arrayAdapter.getItem(spinnerTo.getSelectedItemPosition()).getCoeff());
     }
 }
 // Калмыков 303
